@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import logo from "../../../assets/toys.png";
+import { AuthContext } from "../../Routers/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then((reuslt) => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className="navbar">
@@ -73,11 +82,20 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <FaUserCircle className="w-12 h-12 mr-4"></FaUserCircle>
-          <Link to="/login">
-            <button className="btn btn-accent mr-4">login</button>
-          </Link>
-          <button className="btn btn-accent">logOut</button>
+          {user && (
+            <div className="tooltip tooltip-bottom" data-tip={user?.email}>
+              <FaUserCircle className="mr-3 w-12 h-10"></FaUserCircle>
+            </div>
+          )}
+          {user ? (
+            <button onClick={handleLogout} className="btn btn-accent">
+              logOut
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-accent mr-4">login</button>
+            </Link>
+          )}
         </div>
       </div>
     </>

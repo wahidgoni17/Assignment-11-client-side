@@ -23,7 +23,6 @@ const Login = () => {
     googleLogIn()
       .then((result) => {
         const loggedbygoogle = result.user;
-        console.log(loggedbygoogle);
       })
       .catch((error) => {
         console.log(error);
