@@ -92,7 +92,7 @@ const Header = () => {
         <div className="navbar-end">
           {user && (
             <div className="tooltip tooltip-bottom" data-tip={user?.email}>
-              <FaUserCircle className="mr-3 w-12 h-10"></FaUserCircle>
+              <img className="mr-3 w-12 h-10" src={user.photoURL} alt="" />
             </div>
           )}
           {user ? (

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Routers/AuthProvider";
-
+import { getAuth, updateProfile } from "firebase/auth";
+const auth = getAuth();
 const Signup = () => {
   const { newUser } = useContext(AuthContext);
   const navigate = useNavigate()
@@ -14,13 +15,16 @@ const Signup = () => {
     const photo = form.photo.value
     newUser(email, password)
     .then(result=>{
-        const registereduser = result.user
+        updateProfile(auth.currentUser,{
+          displayName: name,
+          photoURL: photo
+        })
         navigate('/')
     })
     .catch(error=>{
         console.log(error)
     })
-    console.log(email, password, name, photo)
+    // console.log(email, password, name, photo)
   }
   return (
     <>
