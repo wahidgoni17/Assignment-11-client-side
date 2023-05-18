@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../Routers/AuthProvider";
 
 const Login = () => {
+  const { googleLogIn } = useContext(AuthContext);
+  const handleGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        const loggedbygoogle = result.user;
+        console.log(loggedbygoogle);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className="hero min-h-screen">
@@ -40,7 +52,10 @@ const Login = () => {
             </h1>
             <div className="divider">OR</div>
             <div className="text-center">
-              <button className="btn btn-circle btn-info btn-outline">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle btn-info btn-outline"
+              >
                 <FaGoogle></FaGoogle>
               </button>
             </div>
