@@ -36,7 +36,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-200 rounded-box w-52"
             >
               <li>
                 <Link to="/">Home</Link>
@@ -44,12 +44,16 @@ const Header = () => {
               <li>
                 <Link to="/alltoys">All Toys</Link>
               </li>
-              <li>
-                <Link to="/addtoys">Add a Toys</Link>
-              </li>
-              <li>
-                <Link to="/mytoys">My Toys</Link>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <Link to="/addtoys">Add a Toys</Link>
+                  </li>
+                  <li>
+                    <Link to="/mytoys">My Toys</Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link to="/blogs">Blogs</Link>
               </li>
@@ -70,12 +74,16 @@ const Header = () => {
             <li>
               <Link to="/alltoys">All Toys</Link>
             </li>
-            <li>
-              <Link to="/addtoys">Add a Toys</Link>
-            </li>
-            <li>
-              <Link to="/mytoys">My Toys</Link>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <Link to="/addtoys">Add a Toys</Link>
+                </li>
+                <li>
+                  <Link to="/mytoys">My Toys</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
