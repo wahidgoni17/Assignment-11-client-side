@@ -3,6 +3,12 @@ import Main from "./Layout/Main/Main";
 import NotFound from "./ErrorRoute/NotFound";
 import ErrorStatus from "./ErrorRoute/ErrorStatus";
 import Home from "./Layout/HomePage/Home/Home";
+import Addtoys from "./ToysRoute/Addtoys";
+import MyToys from "./ToysRoute/MyToys";
+import Alltoys from "./ToysRoute/Alltoys";
+import Blogs from "./Blogs/Blogs";
+import Login from "./Login&Signup/Login";
+import Signup from "./Login&Signup/Signup";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +19,30 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: 'alltoys',
+        element: <Alltoys></Alltoys>
+      },
+      {
+        path: "addtoys",
+        element: <Addtoys></Addtoys>
+      },
+      {
+        path: "mytoys",
+        element: <MyToys></MyToys>
+      },
+      {
+        path: "blogs",
+        element: <Blogs></Blogs>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
+      },
+      {
+        path: 'signup',
+        element: <Signup></Signup>
       },
       {
         path: '*',

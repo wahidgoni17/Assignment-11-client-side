@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import logo from "../../../assets/toys.png";
 
 const Header = () => {
   return (
@@ -28,33 +30,72 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <Link to="/">
+                  <a>Home</a>
+                </Link>
               </li>
               <li>
-                <Link to='/blogs'>Blogs</Link>
+                <Link to="/alltoys">
+                  <a>All Toys</a>
+                </Link>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link to="/addtoys">
+                  <a>Add a Toys</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/mytoys">
+                  <a>My Toys</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogs">
+                  <a>Blogs</a>
+                </Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <div className="flex ms-3 items-center">
+            <img className="w-16 h-16" src={logo} alt="" />
+            <Link to="/">
+              <a className="btn btn-ghost normal-case text-xl">ToyHub</a>
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <Link to="/">
+                <a>Home</a>
+              </Link>
             </li>
             <li>
-            <Link to='/blogs'>Blogs</Link>
+              <Link to="/alltoys">
+                <a>All Toys</a>
+              </Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to="/addtoys">
+                <a>Add a Toys</a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/mytoys">
+                <a>My Toys</a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogs">
+                <a>Blogs</a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <FaUserCircle className="w-12 h-12 mr-4"></FaUserCircle>
+          <button className="btn btn-accent mr-4">login</button>
+          <button className="btn btn-accent">logOut</button>
         </div>
       </div>
     </>
