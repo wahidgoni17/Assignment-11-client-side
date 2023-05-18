@@ -30,71 +30,53 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">
-                  <a>Home</a>
-                </Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/alltoys">
-                  <a>All Toys</a>
-                </Link>
+                <Link to="/alltoys">All Toys</Link>
               </li>
               <li>
-                <Link to="/addtoys">
-                  <a>Add a Toys</a>
-                </Link>
+                <Link to="/addtoys">Add a Toys</Link>
               </li>
               <li>
-                <Link to="/mytoys">
-                  <a>My Toys</a>
-                </Link>
+                <Link to="/mytoys">My Toys</Link>
               </li>
               <li>
-                <Link to="/blogs">
-                  <a>Blogs</a>
-                </Link>
+                <Link to="/blogs">Blogs</Link>
               </li>
             </ul>
           </div>
           <div className="flex ms-3 items-center">
             <img className="w-16 h-16" src={logo} alt="" />
-            <Link to="/">
-              <a className="btn btn-ghost normal-case text-xl">ToyHub</a>
+            <Link className="btn btn-ghost normal-case text-xl" to="/">
+              ToyHub
             </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">
-                <a>Home</a>
-              </Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/alltoys">
-                <a>All Toys</a>
-              </Link>
+              <Link to="/alltoys">All Toys</Link>
             </li>
             <li>
-              <Link to="/addtoys">
-                <a>Add a Toys</a>
-              </Link>
+              <Link to="/addtoys">Add a Toys</Link>
             </li>
             <li>
-              <Link to="/mytoys">
-                <a>My Toys</a>
-              </Link>
+              <Link to="/mytoys">My Toys</Link>
             </li>
             <li>
-              <Link to="/blogs">
-                <a>Blogs</a>
-              </Link>
+              <Link to="/blogs">Blogs</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
           <FaUserCircle className="w-12 h-12 mr-4"></FaUserCircle>
-          <button className="btn btn-accent mr-4">login</button>
+          <Link to="/login">
+            <button className="btn btn-accent mr-4">login</button>
+          </Link>
           <button className="btn btn-accent">logOut</button>
         </div>
       </div>
