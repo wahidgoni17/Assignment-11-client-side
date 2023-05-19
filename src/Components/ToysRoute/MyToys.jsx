@@ -13,6 +13,19 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, []);
+  const handleDelete = (id) => {
+    fetch(`http://localhost:4000/toys/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          const remaining = mytoys.filter((mytoy) => mytoy._id !== id);
+          setMyToys(remaining);
+        }
+      });
+  };
   return (
     <>
       <div>
@@ -35,9 +48,13 @@ const MyToys = () => {
                 <th>Update</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-white">
               {mytoys.map((mytoy) => (
-                <MytoysRow key={mytoy._id} mytoy={mytoy}></MytoysRow>
+                <MytoysRow
+                  key={mytoy._id}
+                  mytoy={mytoy}
+                  handleDelete={handleDelete}
+                ></MytoysRow>
               ))}
             </tbody>
           </table>
