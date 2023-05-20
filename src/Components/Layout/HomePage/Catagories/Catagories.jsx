@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Molds from "./Molds";
+import Sculpts from "./Sculpts";
+import SandTools from "./SandTools";
 
 const Catagories = () => {
   const [categories, setCategories] = useState([]);
@@ -8,18 +10,24 @@ const Catagories = () => {
     fetch("http://localhost:4000/toys")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCategories(data);
       });
   }, []);
   const molds = categories.filter(
     (category) => category.subCatagory === "Sandcastle Molds"
   );
+  const sculpts = categories.filter(
+    (category) => category.subCatagory === "Sand Sculpting Tools"
+  );
+  const sandTools = categories.filter(
+    (category) => category.subCatagory === "Sandcastle Sand Tools"
+  );
+  console.log(sandTools);
   return (
     <>
       <div className="text-center mx-auto">
-        <h1 className="text-5xl font-bold mb-4">Shop By Catagories</h1>
-        <p>Buy your toys with Catagories to build your Sand Castle</p>
+        <h1 className="text-5xl font-bold mb-4">Shop By Categories</h1>
+        <p>Buy your toys with Categories to build your Sand Castle</p>
       </div>
       <div className="px-10 my-10">
         <Tabs>
@@ -37,10 +45,18 @@ const Catagories = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-2 mx-10">
+              {sculpts.map((sculpt) => (
+                <Sculpts key={sculpt._id} sculpt={sculpt}></Sculpts>
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-2 mx-10">
+              {sandTools.map((sandTool) => (
+                <SandTools key={sandTool._id} sandTool={sandTool}></SandTools>
+              ))}
+            </div>
           </TabPanel>
         </Tabs>
       </div>

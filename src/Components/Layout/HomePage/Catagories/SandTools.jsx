@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Sculpts = ({ sculpt }) => {
-  const { _id, toyPhoto, toyName, price, quantity, ratings } = sculpt;
+const SandTools = ({ sandTool }) => {
+  const { _id, toyPhoto, toyName, price, quantity, ratings } = sandTool;
   return (
     <>
       <div className="card w-96 shadow-xl">
@@ -27,4 +27,4 @@ const Sculpts = ({ sculpt }) => {
   );
 };
 
-export default Sculpts;
+export default SandTools;

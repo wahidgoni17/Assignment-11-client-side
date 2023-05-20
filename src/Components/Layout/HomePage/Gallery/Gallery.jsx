@@ -7,7 +7,6 @@ const Gallery = () => {
     fetch("http://localhost:4000/gallery")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setPics(data);
       });
   }, []);
