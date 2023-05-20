@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const AlltoysRow = ({ toy }) => {
     const {_id, sellerName, toyName, subCatagory, price, quantity}= toy
-    console.log(toy)
   return (
     <>
       <tr className="text-white">

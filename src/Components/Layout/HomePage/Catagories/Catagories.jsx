@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Molds from "./Molds";
 
 const Catagories = () => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/toys")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCategories(data);
+      });
+  }, []);
+  const molds = categories.filter(
+    (category) => category.subCatagory === "Sandcastle Molds"
+  );
   return (
     <>
       <div className="text-center mx-auto">
@@ -10,14 +23,18 @@ const Catagories = () => {
       </div>
       <div className="px-10 my-10">
         <Tabs>
-          <TabList>
-            <Tab>Title 1</Tab>
-            <Tab>Title 2</Tab>
-            <Tab>Title 3</Tab>
+          <TabList className="text-xl mb-5">
+            <Tab>Sandcastle Molds</Tab>
+            <Tab>Sand Sculpting Tools</Tab>
+            <Tab>Sandcastle Sand Tools</Tab>
           </TabList>
 
           <TabPanel>
-            <h2>Any content 1</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-2 mx-10">
+              {molds.map((mold) => (
+                <Molds key={mold._id} mold={mold}></Molds>
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
             <h2>Any content 2</h2>
