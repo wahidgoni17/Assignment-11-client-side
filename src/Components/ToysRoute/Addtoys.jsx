@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Routers/AuthProvider";
 import Swal from 'sweetalert2'
+import { updateTitle } from "../Title/Title";
+import { useLocation } from "react-router-dom";
 
 const Addtoys = () => {
   const { user } = useContext(AuthContext);
+  const location = useLocation()
+  useEffect(()=>{
+    const route = location.pathname
+    updateTitle(route)
+  },[location])
   const handleAddToys = (event) => {
     event.preventDefault();
     const form = event.target;

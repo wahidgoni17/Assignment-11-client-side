@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AlltoysRow from "./AlltoysRow";
+import { updateTitle } from "../Title/Title";
+import { useLocation } from "react-router-dom";
 
 const Alltoys = () => {
   const [toys, setToys] = useState([]);
+  const location = useLocation()
   useEffect(() => {
     fetch("http://localhost:4000/toys")
       .then((res) => res.json())
@@ -10,7 +13,9 @@ const Alltoys = () => {
         console.log(data);
         setToys(data.slice(0, 20));
       });
-  }, []);
+      const route = location.pathname
+      updateTitle(route)
+  }, [location]);
   return (
     <>
       <div className="text-center my-10">

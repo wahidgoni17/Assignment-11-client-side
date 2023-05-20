@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { updateTitle } from "../Title/Title";
+import { useLocation } from "react-router-dom";
 
 const Blogs = () => {
+  const location = useLocation()
+  useEffect(()=>{
+    const route = location.pathname
+    updateTitle(route)
+  },[location])
   return (
     <>
       <div className="text-center my-10">

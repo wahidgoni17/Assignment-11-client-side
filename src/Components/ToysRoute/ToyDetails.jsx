@@ -1,8 +1,14 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLoaderData, useLocation } from "react-router-dom";
+import { updateTitle } from "../Title/Title";
 
 const ToyDetails = () => {
+  const location = useLocation()
   const toyDetails = useLoaderData();
+  useEffect(()=>{
+    const route = location.pathname
+    updateTitle(route)
+  },[location])
   const {
     toyPhoto,
     email,

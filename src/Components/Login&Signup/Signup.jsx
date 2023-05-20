@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Routers/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { updateTitle } from "../Title/Title";
 const auth = getAuth();
 const Signup = () => {
   const { newUser } = useContext(AuthContext);
+  const location = useLocation()
   const navigate = useNavigate()
+  useEffect(()=>{
+    const route = location.pathname
+    updateTitle(route)
+  },[location])
   const handleSignUp = (event) =>{
     event.preventDefault()
     const form = event.target

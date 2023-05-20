@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Routers/AuthProvider";
 import Swal from "sweetalert2";
+import { updateTitle } from "../Title/Title";
 
 const Login = () => {
   const { googleLogIn, logIn } = useContext(AuthContext);
   const navigate = useNavigate()
   const location = useLocation()
+  useEffect(()=>{
+    const route = location.pathname
+    updateTitle(route)
+  },[location])
   const from = location.state?.from?.pathname || "/";
   const handleLogin = (event) => {
     event.preventDefault();

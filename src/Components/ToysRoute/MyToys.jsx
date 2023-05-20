@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Routers/AuthProvider";
 import MytoysRow from "./MytoysRow";
 import Swal from "sweetalert2";
+import { updateTitle } from "../Title/Title";
+import { useLocation } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [mytoys, setMyToys] = useState([]);
+  const location = useLocation()
   useEffect(() => {
     fetch(`http://localhost:4000/toys?email=${user?.email}`)
       .then((res) => res.json())
@@ -13,7 +16,9 @@ const MyToys = () => {
         console.log(data);
         setMyToys(data);
       });
-  }, []);
+      const route = location.pathname
+      updateTitle(route)
+  }, [location]);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Do you want to Delete this",
