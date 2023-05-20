@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import pics from '../../../../assets/644acc6e6df9f10f76deb23d.avif';
 import Molds from "./Molds";
 import Sculpts from "./Sculpts";
 import SandTools from "./SandTools";
@@ -60,6 +61,7 @@ const Catagories = () => {
           </TabPanel>
         </Tabs>
       </div>
+      <img src={pics} alt="" />
     </>
   );
 };

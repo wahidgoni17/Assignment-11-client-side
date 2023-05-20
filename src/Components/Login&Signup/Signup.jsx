@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Routers/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 const auth = getAuth();
 const Signup = () => {
   const { newUser } = useContext(AuthContext);
@@ -24,7 +25,11 @@ const Signup = () => {
     .catch(error=>{
         console.log(error)
     })
-    // console.log(email, password, name, photo)
+    Swal.fire(
+      'Successful!',
+      'Sign Up Successfully',
+      'success'
+    )
   }
   return (
     <>

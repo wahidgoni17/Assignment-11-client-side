@@ -8,7 +8,7 @@ const Alltoys = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setToys(data);
+        setToys(data.slice(0, 20));
       });
   }, []);
   return (

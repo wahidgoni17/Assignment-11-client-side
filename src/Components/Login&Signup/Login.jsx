@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Routers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { googleLogIn, logIn } = useContext(AuthContext);
@@ -21,6 +22,11 @@ const Login = () => {
     .catch(error=>[
         console.log(error)
     ])
+    Swal.fire(
+      'Successful!',
+      'Log In Successfully',
+      'success'
+    )
   };
   const handleGoogleLogin = () => {
     googleLogIn()
