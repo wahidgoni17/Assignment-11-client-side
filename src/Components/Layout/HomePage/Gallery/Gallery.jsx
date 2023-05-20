@@ -4,7 +4,7 @@ import SinglePic from "./SinglePic";
 const Gallery = () => {
   const [pics, setPics] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/gallery")
+    fetch("https://assignment-11-server-side-flax.vercel.app/gallery")
       .then((res) => res.json())
       .then((data) => {
         setPics(data);

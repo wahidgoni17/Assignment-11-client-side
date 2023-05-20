@@ -13,7 +13,6 @@ const ToyDetails = () => {
     subCatagory,
     details,
   } = toyDetails;
-  console.log(toyDetails);
   return (
     <>
       <div className="text-center my-10">

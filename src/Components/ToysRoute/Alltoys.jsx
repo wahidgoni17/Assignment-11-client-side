@@ -7,10 +7,9 @@ const Alltoys = () => {
   const [toys, setToys] = useState([]);
   const location = useLocation()
   useEffect(() => {
-    fetch("http://localhost:4000/toys")
+    fetch("https://assignment-11-server-side-flax.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToys(data.slice(0, 20));
       });
       const route = location.pathname

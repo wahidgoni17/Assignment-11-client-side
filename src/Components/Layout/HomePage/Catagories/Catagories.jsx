@@ -8,7 +8,7 @@ import SandTools from "./SandTools";
 const Catagories = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/toys")
+    fetch("https://assignment-11-server-side-flax.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);
@@ -23,7 +23,6 @@ const Catagories = () => {
   const sandTools = categories.filter(
     (category) => category.subCatagory === "Sandcastle Sand Tools"
   );
-  console.log(sandTools);
   return (
     <>
       <div data-aos="fade-left" data-aos-duration="3000">

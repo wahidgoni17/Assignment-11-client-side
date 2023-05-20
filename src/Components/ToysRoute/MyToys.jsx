@@ -10,7 +10,7 @@ const MyToys = () => {
   const [mytoys, setMyToys] = useState([]);
   const location = useLocation()
   useEffect(() => {
-    fetch(`http://localhost:4000/toys?email=${user?.email}`)
+    fetch(`https://assignment-11-server-side-flax.vercel.app/toys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -30,12 +30,11 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/toys/${id}`, {
+        fetch(`https://assignment-11-server-side-flax.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
               const remaining = mytoys.filter((mytoy) => mytoy._id !== id);

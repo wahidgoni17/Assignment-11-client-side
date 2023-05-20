@@ -34,8 +34,7 @@ const Addtoys = () => {
       ratings,
       details,
     };
-    console.log(toyData);
-    fetch("http://localhost:4000/toys", {
+    fetch("https://assignment-11-server-side-flax.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +43,6 @@ const Addtoys = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",

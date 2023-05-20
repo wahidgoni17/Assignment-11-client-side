@@ -14,7 +14,7 @@ const UpdateToys = () => {
     const quantity = form.quantity.value;
     const details = form.details.value;
     const updatedInfo = { toyName, subCatagory, price, quantity, details };
-    fetch(`http://localhost:4000/toys/${_id}`, {
+    fetch(`https://assignment-11-server-side-flax.vercel.app/toys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -23,7 +23,6 @@ const UpdateToys = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
