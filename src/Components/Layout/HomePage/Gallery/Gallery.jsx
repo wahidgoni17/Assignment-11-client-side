@@ -11,7 +11,7 @@ const Gallery = () => {
       });
   }, []);
   return (
-    <>
+    <div data-aos="fade-right" data-aos-duration="1000">
       <div className="text-center my-10">
         <h1 className="text-5xl font-bold mb-4">Explore Toys</h1>
         <p className="text-lg">Lets Explore some brand new toys to make a dream castle</p>
@@ -21,7 +21,7 @@ const Gallery = () => {
             pics.map(pic => <SinglePic key={pic._id} pic={pic}></SinglePic>)
         }
       </div>
-    </>
+    </div>
   );
 };
 

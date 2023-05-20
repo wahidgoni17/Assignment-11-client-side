@@ -12,9 +12,6 @@ export function updateTitle(route) {
     case "/mytoys":
       document.title = "ToyHub | My Toys";
       break;
-    case "/toydetails/:id":
-      document.title = "ToyHub | Toy Details";
-      break;
     case "/blogs":
       document.title = "ToyHub | Blogs";
       break;

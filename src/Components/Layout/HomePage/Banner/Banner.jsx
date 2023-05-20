@@ -2,7 +2,7 @@ import React from "react";
 import pic3 from "../../../../assets/3.jpg";
 const Banner = () => {
   return (
-    <>
+    <div data-aos="zoom-in" data-aos-duration="3000">
       <div
         className="hero min-h-screen"
         style={{
@@ -20,7 +20,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,29 @@
+- feature 1
+  - Sand Castle toys are the main Subject of this project
+- feature 2
+  - In this client side page, In the navbar some links are added. those links are :
+        - home link
+        - add toy link
+        - all toys link
+        - my toys link
+        - blogs link
+- feature 3
+  - Some sand castle toys showed in the gallery section
+- feature 4
+  - Subcategories of the toys are showed in the category section in the tab layout
+- feature 5
+  - user can see all toys in the all toys section
+- feature 6
+  - user can add his/her toys by using addtoys section
+  - also he/she can see those toy which are added by his/her in the my toys section
+- feature 7
+  - blogs section has some question and answer
+- feature 8
+  - login and registration link are also added
+  - authentication setup with firebase
+- feature 9
+  - google login is available in the bottom of login section
+- feature 10
+  - user can experience awesome animation by srolling homepage
+
+<!-- Live link = https://assignment-10-client-sid-c03ea.web.app/ -->
